@@ -18,14 +18,20 @@ endif
 
 Bundle 'gmarik/vundle'
 
+" Bundle 'mileszs/ack.vim'
+
+Bundle 'kien/ctrlp.vim'
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
 Bundle "tomtom/tcomment_vim"
 nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
 
 Bundle 'PDV--phpDocumentor-for-Vim'
-inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
-nnoremap <C-P> :call PhpDocSingle()<CR> 
-vnoremap <C-P> :call PhpDocRange()<CR>
+inoremap <C-D> <ESC>:call PhpDocSingle()<CR>i 
+nnoremap <C-D> :call PhpDocSingle()<CR> 
+vnoremap <C-D> :call PhpDocRange()<CR>
 
 Bundle "Mark--Karkat"
 " <leader>m, <leader>n
@@ -39,8 +45,7 @@ Bundle 'bling/vim-airline'
 Bundle 'terryma/vim-multiple-cursors'
 
 Bundle "tpope/vim-surround"
-" cs,ds,ys
-
+" cs"',ds',yss(,ysiw]
 
 Bundle 'ervandew/supertab'
 
@@ -49,16 +54,32 @@ Bundle 'matrix.vim--Yang'
 Bundle 'Townk/vim-autoclose'
 
 Bundle 'godlygeek/tabular'
+" :Tabularize /=
+" :Tabularize /=\zs
+
+Bundle 'shawncplus/phpcomplete.vim'
 
 Bundle 'The-NERD-tree'
 noremap <leader>d :NERDTreeToggle<CR>
 
 Bundle 'majutsushi/tagbar'
+nnoremap <leader>] :TagbarToggle<CR>
 
 Bundle 'altercation/vim-colors-solarized'
 colorscheme solarized
 set background=dark
 let g:solarized_termtrans=1
+
+" Bundle 'tpope/vim-markdown'
+" autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" Bundle 'scrooloose/syntastic'
+
+Bundle 'vim-scripts/phpfolding.vim'
+let g:DisableAutoPHPFolding = 1
+" map <F5> <Esc>:EnableFastPHPFolds<Cr>
+" map <F6> <Esc>:EnablePHPFolds<Cr>
+" map <F7> <Esc>:DisablePHPFolds<Cr>
 
 " }}}
 
@@ -77,8 +98,8 @@ set nowrap             " no wrap
 set backspace=2        " 设置回格键正常处理
 set clipboard+=unnamed " Yanks go on clipboard instead.
 set directory-=.       " don't store swapfiles in the current directory
-" set wildmenu           " show a navigable menu for tab completion
-set wildmode=longest,list,full
+set wildmenu           " show a navigable menu for tab completion
+set wildmode=longest,list
 set autochdir          " 自动修改vim当前目录为文件所在目录
 set tags=tags;         " tags文件搜索
 
@@ -123,18 +144,21 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 
 " keyboard shortcuts {{{
 nnoremap <silent> <leader>nn :set nonumber!<CR>:set foldcolumn=0<CR>       " F2开启/关闭行号显示
-nnoremap <silent> <leader>cl :nohlsearch<CR>                " 快速清除高度搜索
+nnoremap <silent> <leader>nl :nohlsearch<CR>                " 快速清除高度搜索
 
 " Don't copy the contents of an overwritten selection.
 vnoremap p "_dP
-
-" reload .vimrc
-noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" Arrow keys are evil
+map <up>    <nop>
+map <down>  <nop>
+map <left>  <nop>
+map <right> <nop>
 
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 " }}}
