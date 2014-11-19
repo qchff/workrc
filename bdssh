@@ -1,0 +1,78 @@
+#!/usr/bin/expect -f
+
+# relay地址
+set relayHost ""
+# 门神pin码
+set pinCode ""
+# 通用密码
+# 逆序匹配，最严格的放数组最后
+set comUserNames(1) ""
+set comPasswords(1) ""
+set comUserNames(2) ""
+set comPasswords(2) ""
+set comUserNames(3) ""
+set comPasswords(3) ""
+set comUserNames(4) ""
+set comPasswords(4) ""
+
+# 设置脚本超时时间
+set timeout -1
+# 关闭日志
+log_user 0
+
+# 登录 Relay
+spawn zssh "$relayHost"
+
+#捕获窗口大小改变信号
+trap {
+    set rows "[stty rows]"
+    set cols "[stty columns]"
+    stty rows "$rows" columns "$cols" < $spawn_out(slave,name)
+} WINCH
+
+expect {
+	eof { exit 1 }
+	"(yes/no)" { send "yes\n"; exp_continue }
+	"$relayHost" {
+		send_user "Enter SecurID:"
+		expect_user {
+			-re (.*)\n {
+				send "$pinCode$expect_out(1,string)\n"
+			}
+		}
+		exp_continue
+	}
+	"bash-baidu-ssl" {
+        # 如果有参数，则尝试登录开发机
+        if { $argc } {
+            set hostName "[lindex $argv 0]"
+            send "ssh $hostName\n"
+            expect {
+                eof { exit 1 }
+                "(yes/no)" { send "yes\n"; exp_continue }
+                # 尝试密码
+                # 1. 如果$2存在，则使用
+                # 2. 尝试通用数码数组（逆序）
+                "password:" {
+                    if { $argc > 1 } {
+                        send "[lindex $argv 1]\n"
+                    } else {
+                        for { set i [array size comUserNames] } { $i > 0 } { incr i -1 } {
+                            if { [regexp $comUserNames($i) $hostName] } {
+                                send "$comPasswords($i)\n"
+                                # break loop
+                                set i 0
+                            }
+                        }
+                    }
+                }
+                # 判定登录成功的状态
+                -re "Last login|dghelp" { send "\n" }
+            }
+        } else {
+            send "\n"
+        }
+    }
+}
+
+interact
