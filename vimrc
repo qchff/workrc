@@ -47,7 +47,12 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle "tpope/vim-surround"
 " cs"',ds',yss(,ysiw]
 
-Bundle 'ervandew/supertab'
+" Bundle 'ervandew/supertab'
+
+" can't use brew python, macvim signal ABRT
+Bundle 'Valloric/YouCompleteMe'
+let g:spf13_noninvasive_completion = 1
+let g:spf13_no_omni_complete = 1
 
 Bundle 'matrix.vim--Yang'
 
@@ -57,7 +62,7 @@ Bundle 'godlygeek/tabular'
 " :Tabularize /=
 " :Tabularize /=\zs
 
-Bundle 'shawncplus/phpcomplete.vim'
+" Bundle 'shawncplus/phpcomplete.vim'
 
 Bundle 'The-NERD-tree'
 noremap <leader>d :NERDTreeToggle<CR>
@@ -75,8 +80,8 @@ let g:solarized_termtrans=1
 
 " Bundle 'scrooloose/syntastic'
 
-Bundle 'vim-scripts/phpfolding.vim'
-let g:DisableAutoPHPFolding = 1
+" Bundle 'vim-scripts/phpfolding.vim'
+" let g:DisableAutoPHPFolding = 1
 " map <F5> <Esc>:EnableFastPHPFolds<Cr>
 " map <F6> <Esc>:EnablePHPFolds<Cr>
 " map <F7> <Esc>:DisablePHPFolds<Cr>
@@ -135,6 +140,9 @@ set guioptions-=R
 set guioptions-=l
 set guioptions-=L
 
+" no scratch preview
+set completeopt-=preview
+
 " Restore cursor to file position in previous editing session
 set viminfo='10,\"100,:20,%,n~/.viminfo
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm'\"")|else|exe "norm $"|endif|endif
@@ -155,10 +163,14 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Arrow keys are evil
-map <up>    <nop>
-map <down>  <nop>
-map <left>  <nop>
-map <right> <nop>
+inoremap  <Up>     <NOP>
+inoremap  <Down>   <NOP>
+inoremap  <Left>   <NOP>
+inoremap  <Right>  <NOP>
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
 
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 " }}}
