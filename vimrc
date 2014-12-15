@@ -91,7 +91,9 @@ let g:solarized_termtrans=1
 filetype plugin indent on     " required!
 
 " seneral settings
+" {{{
 syntax enable          " enable syntax highlighting
+set mouse-=a           " disable mouse
 set nobomb             " utf8 bomb
 set showcmd
 set number             " show line numbers
@@ -149,6 +151,7 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm'\"")|e
 
 " auto reload vimrc where editing it
 autocmd! bufwritepost .vimrc source ~/.vimrc
+" }}}
 
 " keyboard shortcuts {{{
 nnoremap <silent> <leader>nn :set nonumber!<CR>:set foldcolumn=0<CR>       " F2开启/关闭行号显示
@@ -177,6 +180,7 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
 " 解决gbk时消息乱码问题
 if has("gui_running")
+    set mouse=a
     set langmenu=zh_cn.utf-8
     source $VIMRUNTIME/delmenu.vim
     source $VIMRUNTIME/menu.vim
