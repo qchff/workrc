@@ -21,7 +21,7 @@ set timeout -1
 log_user 0
 
 # 登录 Relay
-spawn zssh "$relayHost"
+spawn ssh "$relayHost"
 
 #捕获窗口大小改变信号
 trap {

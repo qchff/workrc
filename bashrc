@@ -1,19 +1,18 @@
 # ls配色
-eval `gdircolors .dircolors`
+eval `gdircolors ~/.dircolors`
 
 alias ls='gls --color=auto'
 alias ll='ls -l'
 alias rm='grm'
 alias du='gdu'
-alias vpn_tunnel='ssh -D 8888 qucaihui@qch.me'
+alias ssh='zssh'
+alias vpn_tunnel='ssh -CfNg -D 127.0.0.1:8888 qucaihui@qch.me'
 
 export PATH=$PATH:~/local/bin
 
-# bash completition {{{
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
-# }}}
 
 # mark {{{
 export MARKPATH=$HOME/.marks
