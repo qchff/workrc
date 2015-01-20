@@ -51,8 +51,10 @@ Bundle "tpope/vim-surround"
 
 " can't use brew python, macvim signal ABRT
 Bundle 'Valloric/YouCompleteMe'
-let g:spf13_noninvasive_completion = 1
-let g:spf13_no_omni_complete = 1
+" let g:spf13_noninvasive_completion = 1
+" let g:spf13_no_omni_complete = 1
+let g:ycm_key_list_select_completion = ['<TAB>']
+let g:ycm_key_list_previous_completion = ['<S-TAB>']
 
 Bundle 'matrix.vim--Yang'
 
