@@ -20,6 +20,8 @@ Bundle 'gmarik/vundle'
 
 " Bundle 'mileszs/ack.vim'
 
+Bundle 'dbext.vim'
+
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -37,7 +39,7 @@ Bundle "Mark--Karkat"
 " <leader>m, <leader>n
 
 Bundle 'Lokaltog/vim-easymotion'
-let g:EasyMotion_leader_key = 'f'
+" let g:EasyMotion_leader_key = 'f'
 
 Bundle 'bling/vim-airline'
 
@@ -47,18 +49,34 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle "tpope/vim-surround"
 " cs"',ds',yss(,ysiw]
 
+" supertab 和 youcompleteme 二者选其一
 " Bundle 'ervandew/supertab'
 
 " can't use brew python, macvim signal ABRT
 Bundle 'Valloric/YouCompleteMe'
-" let g:spf13_noninvasive_completion = 1
-" let g:spf13_no_omni_complete = 1
 let g:ycm_key_list_select_completion = ['<TAB>']
 let g:ycm_key_list_previous_completion = ['<S-TAB>']
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_cache_omnifunc=0  " 禁止缓存匹配项,每次都重新生成匹配项
+let g:ycm_seed_identifiers_with_syntax=1    " 语法关键字补全
+
+" syntax check
+Bundle 'scrooloose/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 Bundle 'matrix.vim--Yang'
 
-Bundle 'Townk/vim-autoclose'
+" Bundle 'Townk/vim-autoclose'
+Bundle 'Raimondi/delimitMate'
 
 Bundle 'godlygeek/tabular'
 " :Tabularize /=
@@ -145,6 +163,7 @@ set guioptions-=l
 set guioptions-=L
 
 " no scratch preview
+" set completeopt=longest,menu
 set completeopt-=preview
 
 " Restore cursor to file position in previous editing session
@@ -156,8 +175,8 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 " }}}
 
 " keyboard shortcuts {{{
-nnoremap <silent> <leader>nn :set nonumber!<CR>:set foldcolumn=0<CR>       " F2开启/关闭行号显示
-nnoremap <silent> <leader>nl :nohlsearch<CR>                " 快速清除高度搜索
+nnoremap <silent> <leader>nn :set nonumber!<CR>:set foldcolumn=0<CR>        " F2开启/关闭行号显示
+nnoremap <silent> <leader>nl :nohlsearch<CR>                                " 快速清除高度搜索
 
 " Don't copy the contents of an overwritten selection.
 vnoremap p "_dP
@@ -167,15 +186,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" Arrow keys are evil
-inoremap  <Up>     <NOP>
-inoremap  <Down>   <NOP>
-inoremap  <Left>   <NOP>
-inoremap  <Right>  <NOP>
-noremap   <Up>     <NOP>
-noremap   <Down>   <NOP>
-noremap   <Left>   <NOP>
-noremap   <Right>  <NOP>
+" complete enter mapping
+
+" autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+" inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"    "回车即选中当前项
 
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 " }}}
