@@ -22,13 +22,13 @@ Bundle 'gmarik/vundle'
 
 Bundle 'dbext.vim'
 
-Bundle 'kien/ctrlp.vim'
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+" Bundle 'kien/ctrlp.vim'
+" let g:ctrlp_map = '<c-p>'
+" let g:ctrlp_cmd = 'CtrlP'
 
 Bundle "tomtom/tcomment_vim"
-nnoremap // :TComment<CR>
-vnoremap // :TComment<CR>
+nnoremap <leader>// :TComment<CR>
+vnoremap <leader>// :TComment<CR>
 
 Bundle 'PDV--phpDocumentor-for-Vim'
 inoremap <C-D> <ESC>:call PhpDocSingle()<CR>i 
@@ -63,26 +63,27 @@ let g:ycm_cache_omnifunc=0  " 禁止缓存匹配项,每次都重新生成匹配�
 let g:ycm_seed_identifiers_with_syntax=1    " 语法关键字补全
 
 " syntax check
-Bundle 'scrooloose/syntastic'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" Bundle 'scrooloose/syntastic'
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+"
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 Bundle 'matrix.vim--Yang'
 
 " Bundle 'Townk/vim-autoclose'
 Bundle 'Raimondi/delimitMate'
+let delimitMate_matchpairs = "(:),[:],{:}"
 
 Bundle 'godlygeek/tabular'
 " :Tabularize /=
 " :Tabularize /=\zs
 
-" Bundle 'shawncplus/phpcomplete.vim'
+Bundle 'shawncplus/phpcomplete.vim'
 
 Bundle 'The-NERD-tree'
 noremap <leader>d :NERDTreeToggle<CR>
@@ -105,6 +106,20 @@ let g:solarized_termtrans=1
 " map <F5> <Esc>:EnableFastPHPFolds<Cr>
 " map <F6> <Esc>:EnablePHPFolds<Cr>
 " map <F7> <Esc>:DisablePHPFolds<Cr>
+
+Bundle 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger="<c-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" js jsbeautify
+Bundle 'maksimr/vim-jsbeautify'
+" " for js
+" autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" " for html
+" autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" " for css or scss
+" autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 " }}}
 
@@ -166,6 +181,9 @@ set guioptions-=L
 " set completeopt=longest,menu
 set completeopt-=preview
 
+" set lines=999
+" set columns=9999
+
 " Restore cursor to file position in previous editing session
 set viminfo='10,\"100,:20,%,n~/.viminfo
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm'\"")|else|exe "norm $"|endif|endif
@@ -186,6 +204,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" inoremap <C-h> <Nop>
+
 " complete enter mapping
 
 " autocmd InsertLeave * if pumvisible() == 0|pclose|endif
@@ -201,6 +221,7 @@ if has("gui_running")
     source $VIMRUNTIME/delmenu.vim
     source $VIMRUNTIME/menu.vim
     language messages zh_cn.utf-8
+    set gfn=Monaco:h12
 endif
 
 " vim600: sw=4 ts=4 fdm=marker syn=vim
