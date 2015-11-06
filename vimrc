@@ -50,17 +50,17 @@ Bundle "tpope/vim-surround"
 " cs"',ds',yss(,ysiw]
 
 " supertab 和 youcompleteme 二者选其一
-" Bundle 'ervandew/supertab'
+Bundle 'ervandew/supertab'
 
 " can't use brew python, macvim signal ABRT
-Bundle 'Valloric/YouCompleteMe'
-let g:ycm_key_list_select_completion = ['<TAB>']
-let g:ycm_key_list_previous_completion = ['<S-TAB>']
-let g:ycm_complete_in_comments = 1
-let g:ycm_complete_in_strings = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_cache_omnifunc=0  " 禁止缓存匹配项,每次都重新生成匹配项
-let g:ycm_seed_identifiers_with_syntax=1    " 语法关键字补全
+" Bundle 'Valloric/YouCompleteMe'
+" let g:ycm_key_list_select_completion = ['<TAB>']
+" let g:ycm_key_list_previous_completion = ['<S-TAB>']
+" let g:ycm_complete_in_comments = 1
+" let g:ycm_complete_in_strings = 1
+" let g:ycm_collect_identifiers_from_comments_and_strings = 1
+" let g:ycm_cache_omnifunc=0  " 禁止缓存匹配项,每次都重新生成匹配项
+" let g:ycm_seed_identifiers_with_syntax=1    " 语法关键字补全
 
 " syntax check
 " Bundle 'scrooloose/syntastic'
