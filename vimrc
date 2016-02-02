@@ -42,6 +42,32 @@ Bundle 'Lokaltog/vim-easymotion'
 " let g:EasyMotion_leader_key = 'f'
 
 Bundle 'bling/vim-airline'
+let g:airline_theme="tomorrow"
+" buffer 切换快捷键
+map <Leader>bn :bn<cr>
+map <Leader>bp :bp<cr>
+map <Leader>bd :bd<cr>
+
+let g:airline#extensions#tabline#enabled = 1
+
+let g:airline#extensions#tabline#tab_min_count = 2
+let g:airline#extensions#tabline#buffer_min_count = 2
+
+" let g:airline#extensions#tabline#left_sep = ' '
+" let g:airline#extensions#tabline#left_alt_sep = '>'
+" let g:airline#extensions#tabline#fnamemod = ':p:.'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
 
 " 多光标操作
 Bundle 'terryma/vim-multiple-cursors'
@@ -50,17 +76,26 @@ Bundle "tpope/vim-surround"
 " cs"',ds',yss(,ysiw]
 
 " supertab 和 youcompleteme 二者选其一
-Bundle 'ervandew/supertab'
+" Bundle 'ervandew/supertab'
 
 " can't use brew python, macvim signal ABRT
-" Bundle 'Valloric/YouCompleteMe'
-" let g:ycm_key_list_select_completion = ['<TAB>']
-" let g:ycm_key_list_previous_completion = ['<S-TAB>']
-" let g:ycm_complete_in_comments = 1
-" let g:ycm_complete_in_strings = 1
-" let g:ycm_collect_identifiers_from_comments_and_strings = 1
-" let g:ycm_cache_omnifunc=0  " 禁止缓存匹配项,每次都重新生成匹配项
-" let g:ycm_seed_identifiers_with_syntax=1    " 语法关键字补全
+Bundle 'Valloric/YouCompleteMe'
+" YCM 补全菜单配色
+" 菜单
+highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
+" 选中项
+highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
+let g:ycm_key_list_select_completion = ['<TAB>']
+let g:ycm_key_list_previous_completion = ['<S-TAB>']
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_cache_omnifunc=0  " 禁止缓存匹配项,每次都重新生成匹配项
+let g:ycm_seed_identifiers_with_syntax=1    " 语法关键字补全
+" 从第一个键入字符就开始罗列匹配项
+let g:ycm_min_num_of_chars_for_completion=1
+" 补全内容不以分割子窗口形式出现，只显示补全列表
+set completeopt-=preview
 
 " syntax check
 " Bundle 'scrooloose/syntastic'
@@ -83,6 +118,10 @@ Bundle 'godlygeek/tabular'
 " :Tabularize /=
 " :Tabularize /=\zs
 
+" must after tabublar plugin
+" Bundle 'plasticboy/vim-markdown'
+Bundle 'suan/vim-instant-markdown'
+
 Bundle 'shawncplus/phpcomplete.vim'
 
 Bundle 'The-NERD-tree'
@@ -95,6 +134,13 @@ Bundle 'altercation/vim-colors-solarized'
 colorscheme solarized
 set background=dark
 let g:solarized_termtrans=1
+
+" Bundle 'fholgado/minibufexpl.vim'
+" " 显示/隐藏 MiniBufExplorer 窗口
+" map <Leader>bl :MBEToggle<cr>
+" " buffer 切换快捷键
+" map <Leader>bn :MBEbn<cr>
+" map <Leader>bp :MBEbp<cr>
 
 " Bundle 'tpope/vim-markdown'
 " autocmd BufNewFile,BufReadPost *.md set filetype=markdown
@@ -112,6 +158,16 @@ let g:UltiSnipsExpandTrigger="<c-s>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+Bundle 'nathanaelkane/vim-indent-guides'
+" 随 vim 自启动
+let g:indent_guides_enable_on_vim_startup=1
+" 从第二层开始可视化显示缩进
+let g:indent_guides_start_level=2
+" 色块宽度
+let g:indent_guides_guide_size=1
+" 快捷键 i 开/关缩进可视化
+nmap <silent> <Leader>i <Plug>IndentGuidesToggle
+
 " js jsbeautify
 Bundle 'maksimr/vim-jsbeautify'
 " " for js
@@ -128,7 +184,7 @@ filetype plugin indent on     " required!
 " seneral settings
 " {{{
 syntax enable          " enable syntax highlighting
-set mouse-=a           " disable mouse
+" set mouse-=a           " disable mouse
 set nobomb             " utf8 bomb
 set showcmd
 set number             " show line numbers
