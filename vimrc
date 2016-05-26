@@ -153,10 +153,10 @@ let g:solarized_termtrans=1
 " map <F6> <Esc>:EnablePHPFolds<Cr>
 " map <F7> <Esc>:DisablePHPFolds<Cr>
 
-Bundle 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger="<c-s>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" Bundle 'SirVer/ultisnips'
+" let g:UltiSnipsExpandTrigger="<c-s>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 Bundle 'nathanaelkane/vim-indent-guides'
 " 随 vim 自启动
