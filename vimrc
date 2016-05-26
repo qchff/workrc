@@ -42,7 +42,7 @@ Bundle 'Lokaltog/vim-easymotion'
 " let g:EasyMotion_leader_key = 'f'
 
 Bundle 'bling/vim-airline'
-let g:airline_theme="tomorrow"
+" let g:airline_theme="tomorrow"
 " buffer 切换快捷键
 " map <Leader>bn :bn<cr>
 " map <Leader>bp :bp<cr>
