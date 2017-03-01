@@ -20,7 +20,7 @@ Bundle 'gmarik/vundle'
 
 " Bundle 'mileszs/ack.vim'
 
-Bundle 'dbext.vim'
+" Bundle 'dbext.vim'
 
 " Bundle 'kien/ctrlp.vim'
 " let g:ctrlp_map = '<c-p>'
@@ -122,7 +122,7 @@ Bundle 'godlygeek/tabular'
 " Bundle 'plasticboy/vim-markdown'
 Bundle 'suan/vim-instant-markdown'
 
-Bundle 'shawncplus/phpcomplete.vim'
+" Bundle 'shawncplus/phpcomplete.vim'
 
 Bundle 'The-NERD-tree'
 noremap <leader>d :NERDTreeToggle<CR>
@@ -169,7 +169,7 @@ let g:indent_guides_guide_size=1
 nmap <silent> <Leader>i <Plug>IndentGuidesToggle
 
 " js jsbeautify
-Bundle 'maksimr/vim-jsbeautify'
+" Bundle 'maksimr/vim-jsbeautify'
 " " for js
 " autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 " " for html
