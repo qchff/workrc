@@ -42,7 +42,8 @@ Bundle 'Lokaltog/vim-easymotion'
 " let g:EasyMotion_leader_key = 'f'
 
 Bundle 'bling/vim-airline'
-" let g:airline_theme="tomorrow"
+Bundle 'vim-airline/vim-airline-themes'
+let g:airline_theme="tomorrow"
 " buffer 切换快捷键
 " map <Leader>bn :bn<cr>
 " map <Leader>bp :bp<cr>
@@ -158,15 +159,15 @@ let g:solarized_termtrans=1
 " let g:UltiSnipsJumpForwardTrigger="<c-b>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-Bundle 'nathanaelkane/vim-indent-guides'
-" 随 vim 自启动
-let g:indent_guides_enable_on_vim_startup=1
-" 从第二层开始可视化显示缩进
-let g:indent_guides_start_level=2
-" 色块宽度
-let g:indent_guides_guide_size=1
-" 快捷键 i 开/关缩进可视化
-nmap <silent> <Leader>i <Plug>IndentGuidesToggle
+" Bundle 'nathanaelkane/vim-indent-guides'
+" " 随 vim 自启动
+" let g:indent_guides_enable_on_vim_startup=1
+" " 从第二层开始可视化显示缩进
+" let g:indent_guides_start_level=2
+" " 色块宽度
+" let g:indent_guides_guide_size=1
+" " 快捷键 i 开/关缩进可视化
+" nmap <silent> <Leader>i <Plug>IndentGuidesToggle
 
 " js jsbeautify
 " Bundle 'maksimr/vim-jsbeautify'
