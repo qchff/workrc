@@ -24,7 +24,7 @@ _completebdssh() {
         local wordlist=$(cat ~/Applications/bin/hosts_online.txt ~/Applications/bin/hosts_dev.txt)
     fi
     if [[ ${COMP_CWORD} == 2 ]] ; then
-        local wordlist="MhxzKhl qwerUIOP123"
+        local wordlist=""
     fi
     COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
     return 0
