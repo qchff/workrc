@@ -1,0 +1,23 @@
+#!/bin/bash
+# decrypt files with aes-256-cbc cipher using openssl
+
+if [[ $1 == "" ]] || [[ $1 == "-h" ]] || [[ $1 == "--help" ]]
+then
+    echo "This shell uses openssl for decrypting files with the aes-256-cbc cipher"
+    echo "Usage for encrypting: encrypt [file]"
+    echo "Usage for decrypting: decrypt [file]"
+
+    exit 1
+fi
+
+if [ -f "$1" ]
+then
+    outFile=$1
+    if [[ $outFile == *.enc* ]] 
+    then
+        outFile=${outFile%.*}
+    fi
+    openssl aes-256-cbc -a -e -salt -in "$1" -out $outFile
+else
+    echo "$0 file [${1}] does not exist!" 
+fi
