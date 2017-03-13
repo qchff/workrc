@@ -153,10 +153,13 @@ let g:solarized_termtrans=1
 " map <F6> <Esc>:EnablePHPFolds<Cr>
 " map <F7> <Esc>:DisablePHPFolds<Cr>
 
-" Bundle 'SirVer/ultisnips'
-" let g:UltiSnipsExpandTrigger="<c-s>"
-" let g:UltiSnipsJumpForwardTrigger="<c-b>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+Bundle 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger="<C-W>"
+let g:UltiSnipsJumpForwardTrigger="<C-F>"
+let g:UltiSnipsJumpBackwardTrigger="<C-B>"
+
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
 
 " Bundle 'nathanaelkane/vim-indent-guides'
 " " 随 vim 自启动
