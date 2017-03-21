@@ -21,7 +21,10 @@ eval `dircolors -b $HOME/.dir_colors`
 # brew install bash_completion
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
-PS1='\[$(tput bold)\]\[$(tput setaf 4)\][\033[38;5;26m\]\u\[$(tput setaf 4)\]@\[\033[38;5;26m\]mac \[\033[38;5;124m\]\A \[\033[38;5;26m\]\W\[$(tput setaf 4)\]]\\$ \[$(tput sgr0)\]'
+export PS1="\[\033[38;5;246m\][\[$(tput sgr0)\]\[\033[38;5;32m\]\u\[$(tput sgr0)\]\[\033[38;5;246m\]@\
+\[$(tput sgr0)\]\[\033[38;5;32m\]mac\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;1m\]\
+\A\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;32m\]\W\[$(tput sgr0)\]\[\033[38;5;246m\]]\\$\
+\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 
 # }}}
 
