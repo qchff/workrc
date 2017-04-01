@@ -6,6 +6,7 @@ alias egrep='egrep --color'
 alias fgrep='fgrep --color'
 alias sz='sz -bey'
 alias rz='rz -bey'
+alias ssh='zssh'
 # }}}
 
 # ENV {{{

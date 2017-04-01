@@ -1,4 +1,4 @@
-ln -sfn vimrc ~/.vimrc
-ln -sfn bashrc ~/.bash_profile
-ln -sfn inputrc ~/.inputrc
-ln -sfn gitconfig ~/.gitconfig
+ln -sfn ${PWD}/vimrc ~/.vimrc
+# ln -sfn ${PWD}/bashrc ~/.bash_profile
+ln -sfn ${PWD}/inputrc ~/.inputrc
+ln -sfn ${PWD}/gitconfig ~/.gitconfig
