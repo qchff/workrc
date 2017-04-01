@@ -76,26 +76,26 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle "tpope/vim-surround"
 " cs"',ds',yss(,ysiw]
 
-" supertab 和 youcompleteme 二者选其一
-" Bundle 'ervandew/supertab'
+" supertab 和 youcompleteme 二者选其一 Default supertab
+Bundle 'ervandew/supertab'
 
 " can't use brew python, macvim signal ABRT
-Bundle 'Valloric/YouCompleteMe'
-" YCM 补全菜单配色
-highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
-" 选中项
-highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
-let g:ycm_key_list_select_completion = ['<TAB>']
-let g:ycm_key_list_previous_completion = ['<S-TAB>']
-let g:ycm_complete_in_comments = 1
-let g:ycm_complete_in_strings = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_cache_omnifunc=0  " 禁止缓存匹配项,每次都重新生成匹配项
-let g:ycm_seed_identifiers_with_syntax=1    " 语法关键字补全
-" 从第二个键入字符就开始罗列匹配项
-let g:ycm_min_num_of_chars_for_completion=2
-" 补全内容不以分割子窗口形式出现，只显示补全列表
-set completeopt-=preview
+" Bundle 'Valloric/YouCompleteMe'
+" " YCM 补全菜单配色
+" highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
+" " 选中项
+" highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
+" let g:ycm_key_list_select_completion = ['<TAB>']
+" let g:ycm_key_list_previous_completion = ['<S-TAB>']
+" let g:ycm_complete_in_comments = 1
+" let g:ycm_complete_in_strings = 1
+" let g:ycm_collect_identifiers_from_comments_and_strings = 1
+" let g:ycm_cache_omnifunc=0  " 禁止缓存匹配项,每次都重新生成匹配项
+" let g:ycm_seed_identifiers_with_syntax=1    " 语法关键字补全
+" " 从第二个键入字符就开始罗列匹配项
+" let g:ycm_min_num_of_chars_for_completion=2
+" " 补全内容不以分割子窗口形式出现，只显示补全列表
+" set completeopt-=preview
 
 " syntax check
 " Bundle 'scrooloose/syntastic'
@@ -120,7 +120,7 @@ Bundle 'godlygeek/tabular'
 
 " must after tabublar plugin
 " Bundle 'plasticboy/vim-markdown'
-Bundle 'suan/vim-instant-markdown'
+" Bundle 'suan/vim-instant-markdown'
 
 " Bundle 'shawncplus/phpcomplete.vim'
 
