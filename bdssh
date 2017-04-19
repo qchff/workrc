@@ -46,7 +46,7 @@ expect {
         # 如果有参数，则尝试登录开发机
         if { $argc } {
             set hostName "[lindex $argv 0]"
-            send "ssh $hostName\n"
+            send "TERM=xterm ssh $hostName\n"
             expect {
                 eof { exit 1 }
                 "(yes/no)" { send "yes\n"; exp_continue }

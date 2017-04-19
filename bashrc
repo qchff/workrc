@@ -6,7 +6,12 @@ alias egrep='egrep --color'
 alias fgrep='fgrep --color'
 alias sz='sz -bey'
 alias rz='rz -bey'
-alias ssh='zssh'
+if hash zssh 2>/dev/null; then
+    alias ssh='export TERM=xterm zssh'
+fi
+if hash mvim 2>/dev/null; then
+   alias vim='mvim -v'
+fi
 # }}}
 
 # ENV {{{
