@@ -213,7 +213,7 @@ set termencoding=utf-8
 " search
 set smartcase
 set hlsearch
-" set incsearch
+set noincsearch
 
 " tab
 set tabstop=4
