@@ -194,7 +194,11 @@ set number             " show line numbers
 set ruler              " show where you are
 set modeline           " 启用Modeline,详见http://vim.wikia.com/wiki/Modeline_magic
 set scrolloff=5        " 光标移动到buffer的顶部和底部时保持n行距离
-set textwidth=0        " Linebreak
+
+set textwidth=100      " Linebreak
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%101v.\+/
+
 set nowrap             " no wrap
 " set backspace=2        " 设置回格键正常处理
 set backspace=indent,eol,start
@@ -244,7 +248,7 @@ set completeopt-=preview
 " iterm2 vim performance
 set lazyredraw
 set ttyfast
-set synmaxcol=128
+" set synmaxcol=128
 syntax sync minlines=256
 
 " set lines=999

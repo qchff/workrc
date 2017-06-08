@@ -7,7 +7,7 @@ alias fgrep='fgrep --color'
 alias sz='sz -bey'
 alias rz='rz -bey'
 if hash zssh 2>/dev/null; then
-    alias ssh='export TERM=xterm zssh'
+    alias ssh='TERM=xterm zssh'
 fi
 if hash mvim 2>/dev/null; then
    alias vim='mvim -v'
