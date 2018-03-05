@@ -6,6 +6,7 @@ alias egrep='egrep --color'
 alias fgrep='fgrep --color'
 alias sz='sz -bey'
 alias rz='rz -bey'
+alias cctags='ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++'
 if hash zssh 2>/dev/null; then
     alias ssh='TERM=xterm zssh'
 fi
