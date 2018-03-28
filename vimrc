@@ -48,10 +48,12 @@ map <Leader>bn :bn<cr>
 map <Leader>bp :bp<cr>
 map <Leader>bd :bd<cr>
 
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline#extensions#tabline#buffer_min_count = 2
+let g:airline#extensions#tabline#tab_max_count = 9
+let g:airline#extensions#tabline#buffer_max_count = 9
 
 " let g:airline#extensions#tabline#left_sep = ' '
 " let g:airline#extensions#tabline#left_alt_sep = '>'
