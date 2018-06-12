@@ -131,11 +131,25 @@ noremap <leader>d :NERDTreeToggle<CR>
 
 Bundle 'majutsushi/tagbar'
 nnoremap <leader>] :TagbarToggle<CR>
+let g:tagbar_type_php  = {
+\ 'ctagstype' : 'php',
+\ 'kinds'     : [
+    \ 'i:interfaces',
+    \ 'c:classes',
+    \ 'd:constant definitions',
+    \ 'f:functions',
+    \ 'j:javascript functions:1'
+\ ]
+\ }
 
 Bundle 'altercation/vim-colors-solarized'
 colorscheme solarized
 set background=dark
 let g:solarized_termtrans=1
+" Bundle 'sickill/vim-monokai'
+" colorscheme monokai
+" Bundle 'tomasr/molokai'
+" colorscheme molokai
 
 " Bundle 'fholgado/minibufexpl.vim'
 " " 显示/隐藏 MiniBufExplorer 窗口
