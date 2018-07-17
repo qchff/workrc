@@ -90,7 +90,7 @@ let g:ycm_key_list_select_completion = ['<TAB>']
 let g:ycm_key_list_previous_completion = ['<S-TAB>']
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 0
 let g:ycm_cache_omnifunc=0  " 禁止缓存匹配项,每次都重新生成匹配项
 let g:ycm_seed_identifiers_with_syntax=1    " 语法关键字补全
 " 从第二个键入字符就开始罗列匹配项
@@ -145,10 +145,10 @@ let g:tagbar_type_php  = {
 Bundle 'altercation/vim-colors-solarized'
 colorscheme solarized
 set background=dark
-let g:solarized_termtrans=1
-" Bundle 'sickill/vim-monokai'
+" let g:solarized_termtrans=1
+Bundle 'sickill/vim-monokai'
 " colorscheme monokai
-" Bundle 'tomasr/molokai'
+Bundle 'tomasr/molokai'
 " colorscheme molokai
 
 " Bundle 'fholgado/minibufexpl.vim'
