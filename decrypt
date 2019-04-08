@@ -17,8 +17,7 @@ then
     then
         outFile=${outFile%.*}
     fi
-    openssl aes-256-cbc -a -e -salt -in "$1" -out $outFile
+    openssl aes-256-cbc -a -d -salt -in "$1" -out $outFile
 else
     echo "$0 file [${1}] does not exist!" 
-    exit 2
 fi
