@@ -4,10 +4,10 @@ alias ll='ls -l'
 alias grep='grep --color'
 alias egrep='egrep --color'
 alias fgrep='fgrep --color'
-alias sz='sz -bey'
-alias rz='rz -bey'
-alias cctags='ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ &&
-    cscope -Rbqk'
+alias cctags='ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ && cscope -Rbqk'
+# alias phptags='ctags -R --file-scope=yes --sort=yes --fields=+afikKlmnsSzt --languages=PHP --extra=+fq'
+alias pytags='ctags -R --sort=1 --fields=+iaS --extra=+fq --languages=python && find . -name "*.py" > cscope.files && cscope -bqR && rm cscope.files'
+alias phptags='ctags -R --sort=1 --fields=+iaS --extra=+fq --languages=php && find . -name "*.php" > cscope.files && cscope -bqR && rm cscope.files'
 if hash zssh 2>/dev/null; then
     alias ssh='TERM=xterm zssh'
 fi
@@ -54,3 +54,5 @@ _completebdssh() {
 }
 complete -F _completebdssh bds
 # }}}
+export PATH="/usr/local/opt/php@7.1/bin:$PATH"
+export PATH="/usr/local/opt/php@7.1/sbin:$PATH"

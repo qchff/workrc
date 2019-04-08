@@ -6,82 +6,50 @@ let mapleader=','
 set nocompatible
 
 " vundle {{{
-" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 filetype off 
 if has("unix")
-    set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc()
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
 else
-    set rtp+=$VIM/vimfiles/bundle/vundle/
-    call vundle#rc('$VIM/vimfiles/bundle/')  
+    set rtp+=$VIM/vimfiles/bundle/Vundle.vim
+    call vundle#begin('$VIM/vimfiles/bundle/')  
 endif
 
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
-" Bundle 'mileszs/ack.vim'
-
-" Bundle 'dbext.vim'
-
-" Bundle 'kien/ctrlp.vim'
+" Plugin 'kien/ctrlp.vim'
 " let g:ctrlp_map = '<c-p>'
 " let g:ctrlp_cmd = 'CtrlP'
 
-Bundle "tomtom/tcomment_vim"
+Plugin 'tomtom/tcomment_vim'
 nnoremap <leader>// :TComment<CR>
 vnoremap <leader>// :TComment<CR>
 
-Bundle 'PDV--phpDocumentor-for-Vim'
+Plugin 'PDV--phpDocumentor-for-Vim'
 inoremap <C-D> <ESC>:call PhpDocSingle()<CR>i 
 nnoremap <C-D> :call PhpDocSingle()<CR> 
 vnoremap <C-D> :call PhpDocRange()<CR>
 
-" Bundle "Mark--Karkat"
+" Plugin "Mark--Karkat"
 " <leader>m, <leader>n
 
-Bundle 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = 'f'
 
-Bundle 'vim-airline/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
-let g:airline_theme="tomorrow"
-map <Leader>bn :bn<cr>
-map <Leader>bp :bp<cr>
-map <Leader>bd :bd<cr>
-
-let g:airline#extensions#tabline#enabled = 0
-
-let g:airline#extensions#tabline#tab_min_count = 2
-let g:airline#extensions#tabline#buffer_min_count = 2
-let g:airline#extensions#tabline#tab_max_count = 9
-let g:airline#extensions#tabline#buffer_max_count = 9
-
-" let g:airline#extensions#tabline#left_sep = ' '
-" let g:airline#extensions#tabline#left_alt_sep = '>'
-" let g:airline#extensions#tabline#fnamemod = ':p:.'
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
-nmap <leader>6 <Plug>AirlineSelectTab6
-nmap <leader>7 <Plug>AirlineSelectTab7
-nmap <leader>8 <Plug>AirlineSelectTab8
-nmap <leader>9 <Plug>AirlineSelectTab9
+Plugin 'vim-airline/vim-airline'
 
 " 多光标操作
-Bundle 'terryma/vim-multiple-cursors'
+Plugin 'terryma/vim-multiple-cursors'
 
-Bundle "tpope/vim-surround"
+Plugin 'tpope/vim-surround'
 " cs"',ds',yss(,ysiw]
 
-" supertab 和 youcompleteme 二者选其一 Default supertab
-" Bundle 'ervandew/supertab'
-
-" can't use brew python, macvim signal ABRT
-Bundle 'Valloric/YouCompleteMe'
+"" supertab 和 youcompleteme 二者选其一 Default supertab
+"" Plugin 'ervandew/supertab'
+"
+"" can't use brew python, macvim signal ABRT
+Plugin 'Valloric/YouCompleteMe'
 " YCM 补全菜单配色
 highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
 " 选中项
@@ -99,7 +67,7 @@ let g:ycm_min_num_of_chars_for_completion=2
 set completeopt-=preview
 
 " syntax check
-" Bundle 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
@@ -109,27 +77,24 @@ set completeopt-=preview
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
 
-" Bundle 'matrix.vim--Yang'
-
-" Bundle 'Townk/vim-autoclose'
-Bundle 'Raimondi/delimitMate'
+Plugin 'Raimondi/delimitMate'
 let delimitMate_matchpairs = "(:),[:],{:}"
 let b:delimitMate_balance_matchpairs = 1
 
-Bundle 'godlygeek/tabular'
+Plugin 'godlygeek/tabular'
 " :Tabularize /=
 " :Tabularize /=\zs
 
 " must after tabublar plugin
-" Bundle 'plasticboy/vim-markdown'
-" Bundle 'suan/vim-instant-markdown'
+" Plugin 'plasticboy/vim-markdown'
+" Plugin 'suan/vim-instant-markdown'
 
-" Bundle 'shawncplus/phpcomplete.vim'
+" Plugin 'shawncplus/phpcomplete.vim'
 
-Bundle 'The-NERD-tree'
+Plugin 'The-NERD-tree'
 noremap <leader>d :NERDTreeToggle<CR>
 
-Bundle 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar'
 nnoremap <leader>] :TagbarToggle<CR>
 let g:tagbar_type_php  = {
 \ 'ctagstype' : 'php',
@@ -142,62 +107,17 @@ let g:tagbar_type_php  = {
 \ ]
 \ }
 
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'flazz/vim-colorschemes'
+" after downloading; unpacking; cd'ing
+" cp colors/* ~/.vim/colors
 colorscheme solarized
+" colorscheme molokai
 set background=dark
 " let g:solarized_termtrans=1
-Bundle 'sickill/vim-monokai'
-" colorscheme monokai
-Bundle 'tomasr/molokai'
-" colorscheme molokai
-
-" Bundle 'fholgado/minibufexpl.vim'
-" " 显示/隐藏 MiniBufExplorer 窗口
-" map <Leader>bl :MBEToggle<cr>
-" " buffer 切换快捷键
-" map <Leader>bn :MBEbn<cr>
-" map <Leader>bp :MBEbp<cr>
-
-" Bundle 'tpope/vim-markdown'
-" autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-
-" Bundle 'scrooloose/syntastic'
-
-" Bundle 'vim-scripts/phpfolding.vim'
-" let g:DisableAutoPHPFolding = 1
-" map <F5> <Esc>:EnableFastPHPFolds<Cr>
-" map <F6> <Esc>:EnablePHPFolds<Cr>
-" map <F7> <Esc>:DisablePHPFolds<Cr>
-
-" Bundle 'SirVer/ultisnips'
-" let g:UltiSnipsExpandTrigger="<C-W>"
-" let g:UltiSnipsJumpForwardTrigger="<C-F>"
-" let g:UltiSnipsJumpBackwardTrigger="<C-B>"
-"
-" " Snippets are separated from the engine. Add this if you want them:
-" Plugin 'honza/vim-snippets'
-
-" Bundle 'nathanaelkane/vim-indent-guides'
-" " 随 vim 自启动
-" let g:indent_guides_enable_on_vim_startup=1
-" " 从第二层开始可视化显示缩进
-" let g:indent_guides_start_level=2
-" " 色块宽度
-" let g:indent_guides_guide_size=1
-" " 快捷键 i 开/关缩进可视化
-" nmap <silent> <Leader>i <Plug>IndentGuidesToggle
-
-" js jsbeautify
-" Bundle 'maksimr/vim-jsbeautify'
-" " for js
-" autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-" " for html
-" autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-" " for css or scss
-" autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 " }}}
 
+call vundle#end()
 filetype plugin indent on     " required!
 
 " seneral settings
@@ -211,9 +131,9 @@ set ruler              " show where you are
 set modeline           " 启用Modeline,详见http://vim.wikia.com/wiki/Modeline_magic
 set scrolloff=5        " 光标移动到buffer的顶部和底部时保持n行距离
 
-set textwidth=100      " Linebreak
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%101v.\+/
+" set textwidth=100      " Linebreak
+" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+" match OverLength /\%101v.\+/
 
 set nowrap             " no wrap
 " set backspace=2        " 设置回格键正常处理
