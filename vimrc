@@ -65,6 +65,19 @@ let g:ycm_seed_identifiers_with_syntax=1    " 语法关键字补全
 let g:ycm_min_num_of_chars_for_completion=2
 " 补全内容不以分割子窗口形式出现，只显示补全列表
 set completeopt-=preview
+let g:ycm_semantic_triggers =  {
+  \   'c': ['->', '.'],
+  \   'objc': ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
+  \            're!\[.*\]\s'],
+  \   'ocaml': ['.', '#'],
+  \   'cpp,cuda,objcpp': ['->', '.', '::'],
+  \   'perl': ['->'],
+  \   'php': ['->', '::'],
+  \   'cs,d,elixir,go,groovy,java,javascript,julia,perl6,python,scala,typescript,vb': ['.'],
+  \   'ruby,rust': ['.', '::'],
+  \   'lua': ['.', ':'],
+  \   'erlang': [':'],
+  \ }
 
 " syntax check
 " Plugin 'scrooloose/syntastic'
