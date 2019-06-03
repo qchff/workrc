@@ -5,28 +5,25 @@ let mapleader=','
 " don't bother with vi compatibility
 set nocompatible
 
-" vundle {{{
-" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 filetype off 
 if has("unix")
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
+    call plug#begin()
 else
-    set rtp+=$VIM/vimfiles/bundle/Vundle.vim
-    call vundle#begin('$VIM/vimfiles/bundle/')  
+    call plug#begin('$VIM/vimfiles/bundle/')  
 endif
-
-Plugin 'VundleVim/Vundle.vim'
 
 " Plugin 'kien/ctrlp.vim'
 " let g:ctrlp_map = '<c-p>'
 " let g:ctrlp_cmd = 'CtrlP'
 
-Plugin 'tomtom/tcomment_vim'
+Plug 'tomtom/tcomment_vim'
 nnoremap <leader>// :TComment<CR>
 vnoremap <leader>// :TComment<CR>
 
-Plugin 'PDV--phpDocumentor-for-Vim'
+Plug 'vim-scripts/PDV--phpDocumentor-for-Vim'
 inoremap <C-D> <ESC>:call PhpDocSingle()<CR>i 
 nnoremap <C-D> :call PhpDocSingle()<CR> 
 vnoremap <C-D> :call PhpDocRange()<CR>
@@ -34,22 +31,22 @@ vnoremap <C-D> :call PhpDocRange()<CR>
 " Plugin "Mark--Karkat"
 " <leader>m, <leader>n
 
-Plugin 'Lokaltog/vim-easymotion'
+Plug 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = 'f'
 
-Plugin 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 
 " 多光标操作
-Plugin 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-multiple-cursors'
 
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 " cs"',ds',yss(,ysiw]
 
 "" supertab 和 youcompleteme 二者选其一 Default supertab
 "" Plugin 'ervandew/supertab'
 "
 "" can't use brew python, macvim signal ABRT
-Plugin 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 " YCM 补全菜单配色
 highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
 " 选中项
@@ -90,11 +87,11 @@ let g:ycm_semantic_triggers =  {
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
 
-Plugin 'Raimondi/delimitMate'
+Plug 'Raimondi/delimitMate'
 let delimitMate_matchpairs = "(:),[:],{:}"
 let b:delimitMate_balance_matchpairs = 1
 
-Plugin 'godlygeek/tabular'
+Plug 'godlygeek/tabular'
 " :Tabularize /=
 " :Tabularize /=\zs
 
@@ -104,10 +101,10 @@ Plugin 'godlygeek/tabular'
 
 " Plugin 'shawncplus/phpcomplete.vim'
 
-Plugin 'The-NERD-tree'
+Plug 'vim-scripts/The-NERD-tree'
 noremap <leader>d :NERDTreeToggle<CR>
 
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 nnoremap <leader>] :TagbarToggle<CR>
 let g:tagbar_type_php  = {
 \ 'ctagstype' : 'php',
@@ -120,18 +117,15 @@ let g:tagbar_type_php  = {
 \ ]
 \ }
 
-Plugin 'flazz/vim-colorschemes'
-" after downloading; unpacking; cd'ing
-" cp colors/* ~/.vim/colors
-colorscheme solarized
-" colorscheme molokai
-set background=dark
-" let g:solarized_termtrans=1
-
+Plug 'altercation/vim-colors-solarized'
 " }}}
 
-call vundle#end()
+call plug#end()
 filetype plugin indent on     " required!
+
+colorscheme solarized
+set background=dark
+let g:solarized_termtrans=1
 
 " seneral settings
 " {{{
