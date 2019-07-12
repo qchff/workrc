@@ -5,8 +5,7 @@ let mapleader=','
 " don't bother with vi compatibility
 set nocompatible
 
-" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-"     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 filetype off 
 if has("unix")
