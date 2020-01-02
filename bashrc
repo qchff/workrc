@@ -88,3 +88,7 @@ complete -F _yargs_completions leetcode
 export PATH="/usr/local/opt/php@7.1/bin:$PATH"
 export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
 export EDITOR=vim
+# disable mac zsh warning
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

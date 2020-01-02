@@ -2,7 +2,7 @@
 [user]
 # Please adapt and uncomment the following lines:
     name = qucaihui
-    email = qucaihui@gmail.com
+	email = qucaihui@gmail.com
 [alias]  
     st = status  
     ci = commit  
@@ -11,3 +11,5 @@
     df = diff  
     info = remote -v
     gpush = "!f() { : push ; r=$1; [[ -z $r ]] && r=origin; b=$2; t=$(awk \"{ print \\$2 }\" $(git rev-parse --git-dir)/HEAD); t=${t#refs/heads/}; [[ -z $b ]] && b=$t; cmd=\"git push $r HEAD:refs/for/$b%topic=$t\"; echo $cmd; echo; $cmd; }; f"
+[http]
+	sslVerify = false
