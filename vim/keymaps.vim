@@ -1,4 +1,3 @@
-" keyboard shortcuts {{{
 nnoremap <silent> <leader>nn :set nonumber!<CR>:set foldcolumn=0<CR>
 nnoremap <silent> <leader>nl :nohlsearch<CR>
 
@@ -105,4 +104,3 @@ nnoremap <leader>U bgUwe
 " inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"    "回车即选中当前项
 
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
-" }}}

@@ -138,9 +138,9 @@ let g:tagbar_type_go = {
 
 Plug 'altercation/vim-colors-solarized'
 
-Plug 'ludovicchabant/vim-gutentags'
-" gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
-let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+" Plug 'ludovicchabant/vim-gutentags'
+" " gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
+" let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
 
 " 所生成的数据文件的名称
 let g:gutentags_ctags_tagfile = '.tags'
@@ -154,9 +154,11 @@ if !isdirectory(s:vim_tags)
    silent! call mkdir(s:vim_tags, 'p')
 endif
 
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'tpope/vim-commentary'
 
-" }}}
+" Plug 'kana/vim-textobj-entire'
+
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 filetype plugin indent on     " required!

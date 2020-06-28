@@ -5,7 +5,6 @@ let mapleader=','
 set nocompatible
 
 " seneral settings
-" {{{
 syntax enable          " enable syntax highlighting
 " set mouse-=a           " disable mouse
 set nobomb             " utf8 bomb
@@ -84,4 +83,3 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm'\"")|e
 
 " auto reload vimrc where editing it
 autocmd! bufwritepost .vimrc source ~/.vimrc
-" }}}

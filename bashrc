@@ -1,19 +1,25 @@
 # alias {{{
-alias ls='ls -F --show-control-chars --color=auto'
-alias ll='ls -l'
+alias ll='ls -l -FHG --color'
 alias grep='grep --color'
 alias egrep='egrep --color'
 alias fgrep='fgrep --color'
-alias cctags='ctags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ && cscope -Rbqk'
+alias cctags='ctags -f .tags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ '
 # alias phptags='ctags -R --file-scope=yes --sort=yes --fields=+afikKlmnsSzt --languages=PHP --extra=+fq'
-alias pytags='ctags -R --sort=1 --fields=+iaS --extra=+fq --languages=python && find . -name "*.py" > cscope.files && cscope -bqR && rm cscope.files'
-alias phptags='ctags -R --sort=1 --fields=+iaS --extra=+fq --languages=php && find . -name "*.php" > cscope.files && cscope -bqR && rm cscope.files'
+alias pytags='ctags -f .tags -R --sort=1 --fields=+iaS --extra=+fq --languages=python'
+alias phptags='ctags -f .tags -R --sort=1 --fields=+iaS --extra=+fq --languages=php'
+alias gotags='gotags -R * > .tags'
+alias restart_en0='sudo ifconfig en0 down && sudo ifconfig en0 up'
+alias start_proxy='export http_proxy="127.0.0.1:8080" && export https_proxy="127.0.0.1:8080"'
+
 if hash zssh 2>/dev/null; then
     alias ssh='TERM=xterm zssh'
 fi
 if hash mvim 2>/dev/null; then
    alias vim='mvim -v'
 fi
+
+source ~/.git-completion.bash
+
 # }}}
 
 # ENV {{{
@@ -29,6 +35,7 @@ eval `dircolors -b $HOME/.dir_colors`
 # brew install bash_completion
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
+# export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1="\[\033[38;5;246m\][\[$(tput sgr0)\]\[\033[38;5;32m\]\u\[$(tput sgr0)\]\[\033[38;5;246m\]@\
 \[$(tput sgr0)\]\[\033[38;5;32m\]mac\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;1m\]\
 \A\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;32m\]\W\[$(tput sgr0)\]\[\033[38;5;246m\]]\\$\
@@ -83,12 +90,45 @@ _yargs_completions()
 complete -F _yargs_completions leetcode
 ###-end-leetcode-completions-###
 
+function _go() {
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  case "${COMP_WORDS[COMP_CWORD-1]}" in
+    "go")
+      comms="build clean doc env bug fix fmt generate get install list run test tool version vet"
+      COMPREPLY=($(compgen -W "${comms}" -- ${cur}))
+      ;;
+    *)
+      files=$(find ${PWD} -mindepth 1 -maxdepth 1 -type f -iname "*.go" -exec basename {} \;)
+      dirs=$(find ${PWD} -mindepth 1 -maxdepth 1 -type d -not -name ".*" -exec basename {} \;)
+      repl="${files} ${dirs}"
+      COMPREPLY=($(compgen -W "${repl}" -- ${cur}))
+      ;;
+  esac
+  return 0
+}
+
+complete -F _go go
 
 # }}}
 export PATH="/usr/local/opt/php@7.1/bin:$PATH"
 export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
+
 export EDITOR=vim
 # disable mac zsh warning
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
+# disable brew auto update
+export HOMEBREW_NO_AUTO_UPDATE=true
+export MONO_GAC_PREFIX="/usr/local"
+
+# brew bottles repo
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export GOPROXY="https://goproxy.io"
+export GOPATH=$HOME/golang
+export GOROOT=/usr/local/opt/go/libexec
+export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
+
+neofetch
