@@ -158,7 +158,7 @@ endif
 
 " Plug 'kana/vim-textobj-entire'
 
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 filetype plugin indent on     " required!
