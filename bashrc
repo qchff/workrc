@@ -3,11 +3,11 @@ alias ll='ls -l -FHG --color'
 alias grep='grep --color'
 alias egrep='egrep --color'
 alias fgrep='fgrep --color'
-alias cctags='ctags -f .tags -R --sort=1 --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ '
+alias cctags='ctags -f .tags -R --sort=true --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ '
 # alias phptags='ctags -R --file-scope=yes --sort=yes --fields=+afikKlmnsSzt --languages=PHP --extra=+fq'
-alias pytags='ctags -f .tags -R --sort=1 --fields=+iaS --extra=+fq --languages=python'
-alias phptags='ctags -f .tags -R --sort=1 --fields=+iaS --extra=+fq --languages=php'
-alias gotags='gotags -R * > .tags'
+alias pytags='ctags -f .tags -R --sort=true --fields=+iaS --extra=+fq --languages=python'
+alias phptags='ctags -f .tags -R --sort=true --fields=+iaS --extra=+fq --languages=php'
+alias go2tags='gotags -f .tags -silent -R --sort=true *'
 alias restart_en0='sudo ifconfig en0 down && sudo ifconfig en0 up'
 alias start_proxy='export http_proxy="127.0.0.1:8080" && export https_proxy="127.0.0.1:8080"'
 
@@ -34,6 +34,9 @@ eval `dircolors -b $HOME/.dir_colors`
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 # brew install bash_completion
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
+# https://github.com/skywind3000/z.lua/blob/master/README.cn.md
+eval "$(lua $HOME/Code/open_source/z.lua/z.lua  --init bash)" 
 
 # export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1="\[\033[38;5;246m\][\[$(tput sgr0)\]\[\033[38;5;32m\]\u\[$(tput sgr0)\]\[\033[38;5;246m\]@\
@@ -110,8 +113,8 @@ function _go() {
 complete -F _go go
 
 # }}}
-export PATH="/usr/local/opt/php@7.1/bin:$PATH"
-export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
+export PATH="/usr/local/opt/php@7.2/bin:$PATH"
+export PATH="/usr/local/opt/php@7.2/sbin:$PATH"
 
 export EDITOR=vim
 # disable mac zsh warning
@@ -131,4 +134,4 @@ export GOPATH=$HOME/golang
 export GOROOT=/usr/local/opt/go/libexec
 export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
 
-neofetch
+# neofetch
