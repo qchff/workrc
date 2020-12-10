@@ -3,13 +3,14 @@ alias ll='ls -l -FHG --color'
 alias grep='grep --color'
 alias egrep='egrep --color'
 alias fgrep='fgrep --color'
-alias cctags='ctags -f .tags -R --sort=true --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ '
+alias cctags='ctags -f .tags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ '
 # alias phptags='ctags -R --file-scope=yes --sort=yes --fields=+afikKlmnsSzt --languages=PHP --extra=+fq'
-alias pytags='ctags -f .tags -R --sort=true --fields=+iaS --extra=+fq --languages=python'
-alias phptags='ctags -f .tags -R --sort=true --fields=+iaS --extra=+fq --languages=php'
+alias pytags='ctags -f .tags -R --fields=+iaS --extra=+fq --languages=python'
+alias phptags='ctags -f .tags -R --fields=+iaS --extra=+fq --languages=php'
 alias go2tags='gotags -f .tags -silent -R --sort=true *'
 alias restart_en0='sudo ifconfig en0 down && sudo ifconfig en0 up'
 alias start_proxy='export http_proxy="127.0.0.1:8080" && export https_proxy="127.0.0.1:8080"'
+alias tx_ssh='ssh ubuntu@139.155.52.60'
 
 if hash zssh 2>/dev/null; then
     alias ssh='TERM=xterm zssh'
@@ -129,9 +130,12 @@ export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-export GOPROXY="https://goproxy.io"
+# export GOPROXY="https://goproxy.io"
 export GOPATH=$HOME/golang
 export GOROOT=/usr/local/opt/go/libexec
+export GO111MODULE="on"
+export GONOPROXY=\*\*.baidu.com\*\*
 export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
 
 # neofetch
+export PATH="/usr/local/sbin:$PATH"

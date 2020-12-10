@@ -23,7 +23,7 @@ vnoremap <C-D> :call PhpDocRange()<CR>
 " <leader>m, <leader>n
 
 Plug 'Lokaltog/vim-easymotion'
-let g:EasyMotion_leader_key = 'f'
+" let g:EasyMotion_leader_key = 'f'
 
 Plug 'vim-airline/vim-airline'
 
@@ -87,7 +87,7 @@ Plug 'godlygeek/tabular'
 " :Tabularize /=\zs
 
 " must after tabublar plugin
-" Plugin 'plasticboy/vim-markdown'
+" Plug 'plasticboy/vim-markdown'
 " Plugin 'suan/vim-instant-markdown'
 
 " Plugin 'shawncplus/phpcomplete.vim'
@@ -159,6 +159,20 @@ endif
 " Plug 'kana/vim-textobj-entire'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" let g:go_def_mode='gopls'
+" let g:go_info_mode='gopls'
+
+Plug 'mhinz/vim-startify'
+
+set rtp+=/usr/local/opt/fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+
+Plug 'myusuf3/numbers.vim'
+
+" Use release branch (recommend)
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 filetype plugin indent on     " required!
