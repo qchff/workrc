@@ -34,7 +34,7 @@ Plug 'tpope/vim-surround'
 " cs"',ds',yss(,ysiw]
 
 "" supertab 和 youcompleteme 二者选其一 Default supertab
-"" Plugin 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 "
 "" can't use brew python, macvim signal ABRT
 Plug 'Valloric/YouCompleteMe'
