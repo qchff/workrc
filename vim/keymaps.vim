@@ -57,10 +57,10 @@ nnoremap <leader>q :q<CR>
 " inoremap <C-w> <Esc>db
 
 " window management
-noremap <tab>h <c-w>h
-noremap <tab>j <c-w>j
-noremap <tab>k <c-w>k
-noremap <tab>l <c-w>l
+noremap <tab>h <c-w>h<c-w>_
+noremap <tab>j <c-w>j<c-w>_
+noremap <tab>k <c-w>k<c-w>_
+noremap <tab>l <c-w>l<c-w>_
 noremap <tab>w <c-w>w
 noremap <tab>c <c-w>c
 noremap <tab>+ <c-w>+
@@ -95,6 +95,27 @@ cnoremap <c-_> <c-k>
 
 nnoremap <leader>u bguwe
 nnoremap <leader>U bgUwe
+
+" Stupid shift key fixes
+if !exists('g:spf13_no_keyfixes')
+    if has("user_commands")
+        command! -bang -nargs=* -complete=file E e<bang> <args>
+        command! -bang -nargs=* -complete=file W w<bang> <args>
+        command! -bang -nargs=* -complete=file Wq wq<bang> <args>
+        command! -bang -nargs=* -complete=file WQ wq<bang> <args>
+        command! -bang Wa wa<bang>
+        command! -bang WA wa<bang>
+        command! -bang Q q<bang>
+        command! -bang QA qa<bang>
+        command! -bang Qa qa<bang>
+    endif
+
+    cmap Tabe tabe
+endif
+
+
+" Yank from the cursor to the end of the line, to be consistent with C and D
+nnoremap Y y$
 
 " inoremap <C-h> <Nop>
 
