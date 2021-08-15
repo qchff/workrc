@@ -11,6 +11,20 @@ alias go2tags='gotags -f .tags -silent -R --sort=true *'
 alias restart_en0='sudo ifconfig en0 down && sudo ifconfig en0 up'
 alias start_proxy='export http_proxy="127.0.0.1:8080" && export https_proxy="127.0.0.1:8080"'
 alias tx_ssh='ssh ubuntu@139.155.52.60'
+alias mbrew='arch -x86_64 brew'
+
+# history命令设置
+HISTSIZE=3000
+HISTFILESIZE=3000
+HISTTIMEFORMAT='%F %T '
+HISTCONTROL=ignoredups
+# 多终端共享history
+shopt -s histappend
+# 实时追加，而不是退出保存
+PROMPT_COMMAND="history -a"
+
+
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 if hash zssh 2>/dev/null; then
     alias ssh='TERM=xterm zssh'
@@ -37,7 +51,7 @@ eval `dircolors -b $HOME/.dir_colors`
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 # https://github.com/skywind3000/z.lua/blob/master/README.cn.md
-eval "$(lua $HOME/Code/open_source/z.lua/z.lua  --init bash)" 
+# eval "$(lua $HOME/Code/open_source/z.lua/z.lua  --init bash)" 
 
 # export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1="\[\033[38;5;246m\][\[$(tput sgr0)\]\[\033[38;5;32m\]\u\[$(tput sgr0)\]\[\033[38;5;246m\]@\
