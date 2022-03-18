@@ -21,7 +21,7 @@ if has("gui_running")
     source $VIMRUNTIME/delmenu.vim
     source $VIMRUNTIME/menu.vim
     language messages zh_cn.utf-8
-    set gfn=Monaco:h12
+    set gfn=Monaco:h11
 
     " no scroll bar
     set guioptions-=r

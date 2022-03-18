@@ -15,15 +15,23 @@ nnoremap <leader>// :TComment<CR>
 vnoremap <leader>// :TComment<CR>
 
 Plug 'vim-scripts/PDV--phpDocumentor-for-Vim'
-inoremap <C-D> <ESC>:call PhpDocSingle()<CR>i 
-nnoremap <C-D> :call PhpDocSingle()<CR> 
-vnoremap <C-D> :call PhpDocRange()<CR>
+inoremap <C-/> <ESC>:call PhpDocSingle()<CR>i 
+nnoremap <C-/> :call PhpDocSingle()<CR> 
+vnoremap <C-/> :call PhpDocRange()<CR>
 
 " Plugin "Mark--Karkat"
 " <leader>m, <leader>n
 
 Plug 'Lokaltog/vim-easymotion'
 " let g:EasyMotion_leader_key = 'f'
+
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
+
+map s <Plug>(easymotion-s)
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 
 Plug 'vim-airline/vim-airline'
 
@@ -168,7 +176,7 @@ set rtp+=/usr/local/opt/fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-Plug 'myusuf3/numbers.vim'
+" Plug 'myusuf3/numbers.vim'
 
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
