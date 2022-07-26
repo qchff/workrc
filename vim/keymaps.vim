@@ -96,6 +96,8 @@ cnoremap <c-_> <c-k>
 nnoremap <leader>u bguwe
 nnoremap <leader>U bgUwe
 
+vmap <c-y> "+y
+
 " Stupid shift key fixes
 if !exists('g:spf13_no_keyfixes')
     if has("user_commands")
