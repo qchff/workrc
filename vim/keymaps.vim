@@ -51,6 +51,7 @@ inoremap <C-l> <right>
 nnoremap <leader>x :x<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
+nnoremap <leader>wq :wq<CR>
 
 " inoremap <C-e> <Esc>A
 " inoremap <C-a> <Esc>I

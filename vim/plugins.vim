@@ -169,6 +169,9 @@ endif
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " let g:go_def_mode='gopls'
 " let g:go_info_mode='gopls'
+" au FileType go nmap <c-t> <Plug>(go-def-pop)
+" let g:go_def_mapping_enabled=0
+
 
 Plug 'mhinz/vim-startify'
 
@@ -180,6 +183,7 @@ Plug 'junegunn/fzf.vim'
 
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" highlight CocFloating ctermbg=Black
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
