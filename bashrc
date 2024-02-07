@@ -10,7 +10,6 @@ alias phptags='ctags -f .tags -R --fields=+iaS --extra=+fq --languages=php'
 alias go2tags='gotags -f .tags -silent -R --sort=true *'
 alias restart_en0='sudo ifconfig en0 down && sudo ifconfig en0 up'
 alias start_proxy='export http_proxy="127.0.0.1:8080" && export https_proxy="127.0.0.1:8080"'
-alias tx_ssh='ssh ubuntu@139.155.52.60'
 alias mbrew='arch -x86_64 brew'
 
 # history命令设置
@@ -23,7 +22,6 @@ shopt -s histappend
 # 实时追加，而不是退出保存
 PROMPT_COMMAND="history -a"
 
-
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 if hash zssh 2>/dev/null; then
@@ -34,7 +32,6 @@ if hash mvim 2>/dev/null; then
 fi
 
 source ~/.git-completion.bash
-
 # }}}
 
 # ENV {{{
@@ -50,9 +47,6 @@ eval `dircolors -b $HOME/.dir_colors`
 # brew install bash_completion
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
-# https://github.com/skywind3000/z.lua/blob/master/README.cn.md
-# eval "$(lua $HOME/Code/open_source/z.lua/z.lua  --init bash)" 
-
 # export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1="\[\033[38;5;246m\][\[$(tput sgr0)\]\[\033[38;5;32m\]\u\[$(tput sgr0)\]\[\033[38;5;246m\]@\
 \[$(tput sgr0)\]\[\033[38;5;32m\]mac\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;1m\]\
@@ -65,11 +59,11 @@ export PS1="\[\033[38;5;246m\][\[$(tput sgr0)\]\[\033[38;5;32m\]\u\[$(tput sgr0)
 function title {
     echo -ne "\033]0;"$*"\007"
 }
-# bdssh complete, @uses ~/bin/bds_hosts.txt
+# bdssh complete, @uses ~/bin/hosts.txt
 _completebdssh() {
     local curw=${COMP_WORDS[COMP_CWORD]}
     if [[ ${COMP_CWORD} == 1 ]] ; then
-        local wordlist=$(cat ~/bin/bds_hosts.txt)
+        local wordlist=$(cat ~/bin/hosts.txt)
     fi
     if [[ ${COMP_CWORD} == 2 ]] ; then
         local wordlist=""
@@ -126,10 +120,7 @@ function _go() {
 }
 
 complete -F _go go
-
 # }}}
-export PATH="/usr/local/opt/php@7.2/bin:$PATH"
-export PATH="/usr/local/opt/php@7.2/sbin:$PATH"
 
 export EDITOR=vim
 # disable mac zsh warning
@@ -144,12 +135,7 @@ export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-# export GOPROXY="https://goproxy.io"
-export GOPATH=$HOME/golang
-export GOROOT=/usr/local/opt/go/libexec
-export GO111MODULE="on"
-export GONOPROXY=\*\*.baidu.com\*\*
-export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
-
 # neofetch
 export PATH="/usr/local/sbin:$PATH"
+
+function urldecode() { : "${*//+/ }"; echo -e "${_//%/\\x}"; }
