@@ -110,10 +110,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+# init brew
 eval "$(/opt/homebrew/bin/brew shellenv)"
-PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 
-alias ls="gls --color=always"
+# add gun bin
+PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
